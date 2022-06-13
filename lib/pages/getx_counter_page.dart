@@ -10,9 +10,11 @@ class GetXCounterPage extends StatelessWidget {
     final controller = Get.put(GetXCounterController());
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: Text(controller.counter.value.toString()),
-      ),
+      body: Obx(() {
+        return Center(
+          child: Text(controller.counter.value.toString()),
+        );
+      }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           controller.increment();

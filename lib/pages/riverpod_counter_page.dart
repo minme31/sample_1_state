@@ -7,22 +7,24 @@ class RiverPodCounterPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: Consumer(builder: (context, ref, _) {
-          final counter = ref.watch(riverPodCounterProvider);
-          return Text(counter.toString());
-        }),
-      ),
-      floatingActionButton: Consumer(
-        builder: (context, ref, _) {
-          return FloatingActionButton(
-            onPressed: () {
-              ref.read(riverPodCounterProvider.notifier).increment();
-            },
-          );
-        },
+    return ProviderScope(
+      child: Scaffold(
+        appBar: AppBar(),
+        body: Center(
+          child: Consumer(builder: (context, ref, _) {
+            final counter = ref.watch(riverPodCounterProvider);
+            return Text(counter.toString());
+          }),
+        ),
+        floatingActionButton: Consumer(
+          builder: (context, ref, _) {
+            return FloatingActionButton(
+              onPressed: () {
+                ref.read(riverPodCounterProvider.notifier).increment();
+              },
+            );
+          },
+        ),
       ),
     );
   }

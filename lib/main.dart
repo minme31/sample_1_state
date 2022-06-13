@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sample_1_state/pages/getx_counter_page.dart';
+import 'package:sample_1_state/pages/riverpod_counter_page.dart';
 import 'package:sample_1_state/pages/stateful_counter_page.dart';
 
 void main() {
@@ -38,6 +40,26 @@ class SelectPage extends StatelessWidget {
               );
             },
             child: const Text('StatefulWidget'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const GetXCounterPage(),
+                ),
+              );
+            },
+            child: const Text('GetX'),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (ctx) => const RiverPodCounterPage(),
+                ),
+              );
+            },
+            child: const Text('RiverPod'),
           ),
         ],
       ),
